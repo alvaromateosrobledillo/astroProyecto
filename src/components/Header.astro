@@ -1,0 +1,98 @@
+---
+import ThemeToggle from "./ThemeToggle.astro"
+
+const navItems = [
+  {
+    title: "INICIO",
+    url: "/",
+  },
+  {
+    title: "SERVICIOS",
+    url: "/#servicios",
+  },
+  {
+    title: "SUBVENCIONES",
+    url: "/#subvenciones",
+  },
+  {
+    title: "CONTACTO",
+    url: "/#contacto",
+  },
+];
+---
+
+<header class="fixed top-0 z-10 w-full bg-white shadow-lg">
+  <div class="container mx-auto flex justify-between items-center p-4">
+    <a href="/" class="text-xl font-bold">
+      <img src="/logo_martina.png" alt="Energía Solar La Martina logo" class="h-8" />
+    </a>
+    <nav class="hidden md:flex space-x-4">
+      {navItems.map((link) => (
+        <a
+          class="text-gray-600 hover:text-yellow-500"
+          href={link.url}
+        >
+          {link.title}
+        </a>
+      ))}
+    </nav>
+    <button class="md:hidden text-gray-600 focus:outline-none" id="menu-button">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+      </svg>
+    </button>
+  </div>
+  <div class="hidden fixed top-0 left-0 h-full w-full bg-black bg-opacity-50 z-20" id="sidebar-overlay"></div>
+  <aside class="hidden fixed top-0 left-0 h-full w-64 bg-white shadow-lg z-30 transform -translate-x-full transition-transform" id="sidebar">
+    <div class="p-4">
+      <button class="text-gray-600 focus:outline-none" id="close-sidebar">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+      <nav class="mt-8">
+        {navItems.map((link) => (
+          <a
+            class="block text-gray-600 hover:text-yellow-500 py-2"
+            href={link.url}
+          >
+            {link.title}
+          </a>
+        ))}
+      </nav>
+    </div>
+  </aside>
+</header>
+
+<script>
+  document.addEventListener("astro:page-load", () => {
+    const menuButton = document.getElementById("menu-button");
+    const sidebar = document.getElementById("sidebar");
+    const closeSidebar = document.getElementById("close-sidebar");
+    const overlay = document.getElementById("sidebar-overlay");
+
+    menuButton.addEventListener("click", () => {
+      sidebar.classList.toggle("hidden");
+      sidebar.classList.toggle("-translate-x-full");
+      overlay.classList.toggle("hidden");
+    });
+
+    closeSidebar.addEventListener("click", () => {
+      sidebar.classList.toggle("hidden");
+      sidebar.classList.toggle("-translate-x-full");
+      overlay.classList.toggle("hidden");
+    });
+
+    overlay.addEventListener("click", () => {
+      sidebar.classList.toggle("hidden");
+      sidebar.classList.toggle("-translate-x-full");
+      overlay.classList.toggle("hidden");
+    });
+  });
+</script>
+
+<style>
+  nav a {
+    transition: color 0.3s;
+  }
+</style>

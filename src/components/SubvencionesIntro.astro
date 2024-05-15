@@ -1,0 +1,46 @@
+---
+const grants = [
+  {
+    title: "NEXT GENERATION",
+    description:
+      "Son unos fondos creados por la Unión Europea y que se distribuyen por todos los países que forman parte de ella.",
+  },
+  {
+    title: "IBI DEL MUNICIPIO",
+    description:
+      "Se trata del Impuesto sobre Bienes Inmuebles. Cada municipio tiene su propia carga impositiva. Algunos de ellos tienen ciertas desgravaciones por instalar sistemas de autoconsumo. Te diremos si te corresponde en función de la zona en la que vivas.",
+  },
+  {
+    title: "CARGADOR DE COCHE ELÉCTRICO 7000",
+    description:
+      "Si tienes un vehículo de estas características, ya va siendo hora de que te instales un cargador en tu garaje o donde quieras. No te preocupes, desde Energía Solar La Martina también podemos informarte acerca de si te corresponde algún tipo de ayuda o subvención.",
+  },
+];
+---
+
+<section id="subvenciones" class="py-16 bg-white">
+  <div class="container mx-auto text-center max-w-5xl px-4">
+    <h2 class="text-3xl font-semibold mb-6">SUBVENCIONES</h2>
+    <p class="text-lg mb-12">
+      Desde Energía Solar La Martina, nuestra empresa en Castellón de la Plana especializada en energías renovables y energías solares, nos encargamos de tramitar todas las subvenciones posibles para mayor comodidad de los clientes. También te informaremos de las ayudas al autoconsumo que haya.
+    </p>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {grants.map((grant) => (
+        <div class="p-6 bg-gray-100 rounded-lg shadow-lg">
+          <h3 class="text-2xl font-semibold mb-4">{grant.title}</h3>
+          <p class="text-base">{grant.description}</p>
+        </div>
+      ))}
+    </div>
+    <a href="/subvenciones" class="mt-8 inline-block bg-blue-500 text-white py-3 px-6 rounded-full font-semibold hover:bg-blue-600 transition">
+      Más Información
+    </a>
+  </div>
+</section>
+
+<style>
+  .grid div:hover {
+    transform: translateY(-5px);
+    transition: transform 0.3s ease-in-out;
+  }
+</style>

@@ -1,0 +1,172 @@
+---
+import SectionContainer from "@/components/SectionContainer.astro";
+import SocialPill from "@/components/SocialPill.astro";
+import LinkedInIcon from "@/components/icons/LinkedIn.astro";
+import Layout from "@/layouts/Layout.astro";
+
+const navItems = [
+  {
+    title: "INICIO",
+    url: "/",
+  },
+  {
+    title: "SERVICIOS",
+    url: "/#servicios",
+  },
+  {
+    title: "SUBVENCIONES",
+    url: "/#subvenciones",
+  },
+  {
+    title: "CONTACTO",
+    url: "/#contacto",
+  },
+];
+---
+
+<Layout
+  title="Energía Solar La Martina"
+  description="Especialistas en instalación de placas solares en Castellón de la Plana"
+>
+  <header class="fixed top-0 z-10 w-full bg-white shadow-lg">
+    <div class="container mx-auto flex justify-between items-center p-4">
+      <a href="/" class="text-xl font-bold">
+        <img src="/logo.png" alt="Energía Solar La Martina logo" class="h-8" />
+      </a>
+      <nav class="flex space-x-4">
+        {navItems.map((link) => (
+          <a class="text-gray-600 hover:text-yellow-500" href={link.url}>
+            {link.title}
+          </a>
+        ))}
+      </nav>
+    </div>
+  </header>
+
+  <main class="px-4">
+    <SectionContainer class="py-16 md:py-36">
+      <h1 class="text-4xl font-bold text-center">
+        ¡Ahorra hasta un 70% en tu factura!
+      </h1>
+      <p class="text-center mt-4">
+        Gracias a la instalación de placas solares con Energía Solar La Martina.
+      </p>
+      <div class="mt-8 flex justify-center">
+        <a
+          href="#contacto"
+          class="bg-yellow-500 text-white font-bold py-3 px-6 rounded-lg hover:bg-yellow-700"
+        >
+          SOLICITA ESTUDIO
+        </a>
+      </div>
+    </SectionContainer>
+
+    <SectionContainer id="servicios" class="py-16 md:py-36">
+      <h2 class="text-3xl font-semibold text-center">SERVICIOS</h2>
+      <p class="text-center mt-4">
+        Energía Solar La Martina ofrece instalación y soporte técnico de placas solares en Castellón de la Plana.
+      </p>
+    </SectionContainer>
+
+    <SectionContainer id="subvenciones" class="py-16 md:py-36">
+      <h2 class="text-3xl font-semibold text-center">SUBVENCIONES</h2>
+      <p class="text-center mt-4">
+        Información sobre las subvenciones disponibles para la instalación de placas solares.
+      </p>
+    </SectionContainer>
+
+    <SectionContainer id="contacto" class="py-16 md:py-36">
+      <h2 class="text-3xl font-semibold text-center">CONTACTO</h2>
+      <form class="max-w-lg mx-auto mt-8 space-y-4">
+        <div>
+          <label class="block text-sm font-medium text-gray-700">Nombre*</label>
+          <input
+            type="text"
+            class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2"
+            required
+          />
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700">Email*</label>
+          <input
+            type="email"
+            class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2"
+            required
+          />
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700">Mensaje</label>
+          <textarea
+            class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2"
+            rows="4"
+          ></textarea>
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700">
+            Elija el archivo
+          </label>
+          <input
+            type="file"
+            class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2"
+          />
+        </div>
+        <div class="flex items-center">
+          <input
+            type="checkbox"
+            id="privacy-policy"
+            class="h-4 w-4 text-indigo-600 border-gray-300 rounded"
+            required
+          />
+          <label for="privacy-policy" class="ml-2 block text-sm text-gray-900">
+            He leído y aceptado la Política de Privacidad
+          </label>
+        </div>
+        <div class="flex items-center">
+          <input
+            type="checkbox"
+            id="contact-permission"
+            class="h-4 w-4 text-indigo-600 border-gray-300 rounded"
+          />
+          <label for="contact-permission" class="ml-2 block text-sm text-gray-900">
+            Autorizo a contactarme por email o por cualquier medio con fines comerciales
+          </label>
+        </div>
+        <div class="mt-4">
+          <button
+            type="submit"
+            class="w-full bg-yellow-500 text-white font-bold py-3 px-6 rounded-lg hover:bg-yellow-700"
+          >
+            Enviar
+          </button>
+        </div>
+      </form>
+    </SectionContainer>
+  </main>
+
+  <footer class="bg-gray-900 text-white py-6 mt-12">
+    <div class="container mx-auto text-center">
+      <p>
+        ENERGÍA SOLAR LA MARTINA, ESPECIALISTAS EN PLACAS SOLARES. INFÓRMATE
+      </p>
+      <p>
+        Calle Pavías, 11 Oficina nº11 12006 Castellón de la Plana ES
+      </p>
+      <p>
+        Servicio técnico: 624 340 482 | Departamento de ingeniería: 624 340 422
+      </p>
+      <p>
+        <a href="mailto:inf.lamartina@gmail.com" class="text-yellow-500 hover:underline">
+          inf.lamartina@gmail.com
+        </a>
+      </p>
+      <p class="mt-4">
+        © 2024 ENERGÍA SOLAR LA MARTINA Todos los derechos reservados
+      </p>
+      <p class="mt-2">
+        <a href="#" class="text-yellow-500 hover:underline">Aviso Legal</a> - 
+        <a href="#" class="text-yellow-500 hover:underline">Política de Privacidad</a> - 
+        <a href="#" class="text-yellow-500 hover:underline">Política de Cookies</a>
+      </p>
+    </div>
+  </footer>
+</Layout>

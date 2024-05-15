@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Otros estilos globales */
+body {
+    background-color: #f8fafc;
+}
+
+header {
+    background-color: #fff;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+footer {
+    background-color: #1f2937;
+    color: #fff;
+}
