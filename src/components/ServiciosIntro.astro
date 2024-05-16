@@ -1,48 +1,52 @@
 ---
+import Icon from './icons/Icon.astro';
+
 const services = [
   {
     title: "Instalación de Placas Solares",
     description: "Realizamos instalaciones de alta calidad para garantizar el máximo aprovechamiento de la energía solar.",
-    icon: "src/components/icons/maintenance.svg"
+    icon: "solar-panel"
   },
   {
     title: "Mantenimiento y Soporte Técnico",
     description: "Ofrecemos servicios de mantenimiento y soporte técnico para asegurar el correcto funcionamiento de tus placas solares.",
-    icon: "src/components/icons/consulting.svg"
+    icon: "tools"
   },
   {
     title: "Consultoría Energética",
     description: "Proporcionamos asesoramiento personalizado para optimizar el consumo energético y reducir costes.",
-    icon: "src/components/icons/consulting.svg"
+    icon: "chart-bar"
   },
   {
     title: "Financiación",
     description: "Ofrecemos opciones de financiación adaptadas a tus necesidades para facilitar la inversión en energía solar.",
-    icon: "src/components/icons/finance.svg"
+    icon: "currency"
   },
   {
     title: "Auditorías Energéticas",
     description: "Realizamos auditorías energéticas para identificar oportunidades de mejora en la eficiencia energética.",
-    icon: "src/components/icons/audit.svg"
+    icon: "clipboard-check"
   },
   {
     title: "Capacitación y Formación",
     description: "Ofrecemos programas de capacitación y formación en energía solar para particulares y empresas.",
-    icon: "src/components/icons/training.svg"
+    icon: "school"
   }
 ];
 ---
 
-<section id="servicios" class="py-20 bg-gray-100">
+<section id="servicios" class="py-20 bg-lightBackground dark:bg-darkBackground">
   <div class="container mx-auto text-center max-w-5xl px-4">
-    <h2 class="text-4xl font-bold mb-12 text-blue-600">Nuestros Servicios</h2>
-    <p class="text-lg mb-12 text-gray-700">En Energía Solar La Martina, ofrecemos una amplia gama de servicios para cubrir todas tus necesidades energéticas con soluciones sostenibles y eficientes.</p>
+    <h2 class="text-4xl font-bold mb-12 text-blue-600 dark:text-blue-400">Nuestros Servicios</h2>
+    <p class="text-lg mb-12 text-lightText dark:text-darkText">En Energía Solar La Martina, ofrecemos una amplia gama de servicios para cubrir todas tus necesidades energéticas con soluciones sostenibles y eficientes.</p>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
       {services.map(service => (
-        <div class="bg-white shadow-lg rounded-lg p-6 hover:shadow-2xl transition">
-          <img src={service.icon} alt={service.title} class="w-16 mx-auto mb-4"/>
-          <h3 class="text-xl font-semibold mb-2">{service.title}</h3>
-          <p class="text-gray-600">{service.description}</p>
+        <div class="group bg-lightBackground dark:bg-darkBackground shadow-lg rounded-lg p-6 hover:shadow-2xl transition transform hover:scale-105">
+          <div class="w-16 h-16 mx-auto mb-4 text-blue-600 dark:text-blue-400">
+            <Icon name={service.icon} class="text-5xl" />
+          </div>
+          <h3 class="text-xl font-semibold mb-2 text-lightText dark:text-darkText">{service.title}</h3>
+          <p class="text-lightText dark:text-darkText">{service.description}</p>
         </div>
       ))}
     </div>
@@ -51,7 +55,8 @@ const services = [
 </section>
 
 <style>
-  .bg-gray-100 {
-    background: #f7fafc;
+  .group:hover .icon {
+    transform: rotate(360deg);
+    transition: transform 0.5s;
   }
 </style>

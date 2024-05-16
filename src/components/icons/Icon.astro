@@ -1,0 +1,15 @@
+---
+const { name, class: className = '' } = Astro.props;
+---
+
+<svg class={`icon ${className}`} xmlns="http://www.w3.org/2000/svg">
+  <use href={`/icons/${name}.svg#${name}`} />
+</svg>
+
+<style>
+  .icon {
+    width: 1em;
+    height: 1em;
+    fill: currentColor;
+  }
+</style>

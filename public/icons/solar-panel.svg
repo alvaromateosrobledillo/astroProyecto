@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <symbol id="solar-panel" viewBox="0 0 24 24">
+    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+    <path d="M3 4h18v-2" />
+    <path d="M4 6h16v2" />
+    <path d="M3 10h18v2" />
+    <path d="M4 14h16v2" />
+    <path d="M3 18h18v2" />
+    <path d="M3 22v-4" />
+    <path d="M18 18v4" />
+    <path d="M12 10v12" />
+    <path d="M9 15h6" />
+  </symbol>
+</svg>

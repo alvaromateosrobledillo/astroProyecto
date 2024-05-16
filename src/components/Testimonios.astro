@@ -50,15 +50,15 @@ const testimonials = [
 
 ---
 
-<section id="testimonios" class="py-20 bg-gray-100">
+<section id="testimonios" class="py-20 bg-lightBackground dark:bg-darkBackground">
   <div class="container mx-auto text-center max-w-7xl px-4">
     <h2 class="text-4xl font-semibold mb-12 text-blue-600">Qué Dicen Nuestros Clientes</h2>
     <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
       {testimonials.map((testimonial) => (
-        <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition transform hover:-translate-y-2">
-          <p class="text-lg italic mb-4">"{testimonial.text}"</p>
+        <div class="bg-lightBackground dark:bg-darkBackground p-6 rounded-lg shadow-lg hover:shadow-2xl transition transform hover:-translate-y-2">
+          <p class="text-lg italic mb-4 text-lightText dark:text-darkText">"{testimonial.text}"</p>
           <div class="text-left">
-            <h3 class="text-xl font-semibold">{testimonial.name}</h3>
+            <h3 class="text-xl font-semibold text-lightText dark:text-darkText">{testimonial.name}</h3>
             <p class="text-yellow-500">
               {"★".repeat(testimonial.rating)}
             </p>

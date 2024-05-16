@@ -21,31 +21,35 @@ const navItems = [
 ];
 ---
 
-<header class="fixed top-0 z-10 w-full bg-white shadow-lg">
+<header class="fixed top-0 z-20 w-full bg-lightBackground dark:bg-darkBackground shadow-lg transition-colors">
   <div class="container mx-auto flex justify-between items-center p-4">
-    <a href="/" class="text-xl font-bold">
-      <img src="/logo_martina.png" alt="Energía Solar La Martina logo" class="h-8" />
+    <a href="/" class="flex items-center space-x-2">
+      <img src="/logo_martina.png" alt="Energía Solar La Martina logo" class="h-10 w-10" />
+      <span class="text-2xl font-bold text-lightText dark:text-darkText">La Martina</span>
     </a>
-    <nav class="hidden md:flex space-x-4">
+    <nav class="hidden md:flex space-x-6">
       {navItems.map((link) => (
         <a
-          class="text-gray-600 hover:text-yellow-500"
+          class="text-lightText dark:text-darkText hover:text-yellow-500 transition-colors duration-300"
           href={link.url}
         >
           {link.title}
         </a>
       ))}
     </nav>
-    <button class="md:hidden text-gray-600 focus:outline-none" id="menu-button">
-      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-      </svg>
-    </button>
+    <div class="flex items-center space-x-4">
+      <ThemeToggle />
+      <button class="md:hidden text-lightText dark:text-darkText focus:outline-none" id="menu-button">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+    </div>
   </div>
-  <div class="hidden fixed top-0 left-0 h-full w-full bg-black bg-opacity-50 z-20" id="sidebar-overlay"></div>
-  <aside class="hidden fixed top-0 left-0 h-full w-64 bg-white shadow-lg z-30 transform -translate-x-full transition-transform" id="sidebar">
+  <div class="hidden fixed top-0 left-0 h-full w-full bg-black bg-opacity-50 z-10" id="sidebar-overlay"></div>
+  <aside class="hidden fixed top-0 left-0 h-full w-64 bg-lightBackground dark:bg-darkBackground shadow-lg z-30 transform -translate-x-full transition-transform" id="sidebar">
     <div class="p-4">
-      <button class="text-gray-600 focus:outline-none" id="close-sidebar">
+      <button class="text-lightText dark:text-darkText focus:outline-none" id="close-sidebar">
         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
         </svg>
@@ -53,7 +57,7 @@ const navItems = [
       <nav class="mt-8">
         {navItems.map((link) => (
           <a
-            class="block text-gray-600 hover:text-yellow-500 py-2"
+            class="block text-lightText dark:text-darkText hover:text-yellow-500 transition-colors duration-300 py-2"
             href={link.url}
           >
             {link.title}
