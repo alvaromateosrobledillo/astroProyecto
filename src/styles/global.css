@@ -3,36 +3,37 @@
 @tailwind utilities;
 
 :root {
-    --lightBackground: #ffffff;
-    --darkBackground: #1a202c;
-    --lightText: #000000;
-    --darkText: #ffffff;
-    --lightBorder: #e2e8f0;
-    --darkBorder: #4a5568;
-    color-scheme: light dark;
+  --lightBackground: #ffffff;
+  --darkBackground: #1a202c;
+  --lightText: #000000;
+  --darkText: #ffffff;
+  --primary: #4f46e5; /* Indigo-600 */
+  --secondary: #3b82f6; /* Blue-500 */
+  --accent: #d97706; /* Amber-500 */
+  color-scheme: light dark;
 }
 
 html {
-    font-family: "Onest Variable", system-ui, sans-serif;
-    scroll-behavior: smooth;
+  font-family: "Onest Variable", system-ui, sans-serif;
+  scroll-behavior: smooth;
 }
 
 body {
-    background-color: var(--lightBackground);
-    color: var(--lightText);
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    overscroll-behavior: none;
+  background-color: var(--lightBackground);
+  color: var(--lightText);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  overscroll-behavior: none;
 }
 
 body.dark {
-    background-color: var(--darkBackground);
-    color: var(--darkText);
+  background-color: var(--darkBackground);
+  color: var(--darkText);
 }
 
 @media (prefers-reduced-motion: reduce) {
-    html {
-        scroll-behavior: auto;
-    }
+  html {
+    scroll-behavior: auto;
+  }
 }

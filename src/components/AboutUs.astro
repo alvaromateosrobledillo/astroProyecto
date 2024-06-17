@@ -1,0 +1,42 @@
+<section id="about-us" class="py-16 bg-white dark:bg-gray-900">
+  <div class="container mx-auto px-4 text-center">
+    <h2 class="fade-in text-3xl font-bold mb-6 text-gray-900 dark:text-white">LA MARTINA</h2>
+    <p class="fade-in text-lg mb-6 text-gray-700 dark:text-gray-300">
+      EMPRESA DE INGENIERÍA E INSTALADORA. PERSONAL PROPIO.
+      EMPRESA JOVEN DINÁMICA CON EXPERIENCIA EN EL SECTOR RENOVABLE Y ELECTRICIDAD.
+    </p>
+    <p class="fade-in text-lg mb-6 text-gray-700 dark:text-gray-300">
+      La Martina es una empresa de ingeniería e instaladora dedicada a las energías renovables y electricidad en general. 
+      Somos una empresa que acompaña en todo momento al cliente y aconsejamos con la mayor honestidad. No buscamos objetivos a corto plazo sino a largo plazo.
+    </p>
+    <p class="fade-in text-lg mb-6 text-gray-700 dark:text-gray-300">
+      A parte del estudio y asesoramiento de la instalación nos encargamos de todas las gestiones administrativas: Permisos de obra, legalizaciones, boletines eléctricos, proyectos de ingeniería y todas las ayudas a las que pueda acogerse el cliente para que obtenga una mayor amortización de su inversión inicial.
+    </p>
+    <p class="fade-in text-lg text-gray-700 dark:text-gray-300">
+      Además tenemos un equipo especializado en servicios de electricidad tanto en obra nueva como reformas y averías.
+    </p>
+  </div>
+</section>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const elements = document.querySelectorAll(".fade-in");
+    elements.forEach((element, index) => {
+      setTimeout(() => {
+        element.classList.add("visible");
+      }, index * 300); // Delay entre las animaciones de cada elemento
+    });
+  });
+</script>
+
+<style>
+  .fade-in {
+    opacity: 0;
+    transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+    transform: translateY(20px);
+  }
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>

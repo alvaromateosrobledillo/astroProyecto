@@ -1,0 +1,66 @@
+---
+const { title, description, backgroundImage } = Astro.props;
+---
+
+<div class="service-card relative bg-cover bg-center p-6 rounded-lg shadow-lg transform transition-transform duration-300 hover:shadow-2xl hover:-translate-y-2 fade-in">
+  <div class="background-image absolute inset-0 bg-cover bg-center rounded-lg transition-filter duration-300" style={`background-image: url(${backgroundImage});`}></div>
+  <div class="overlay absolute inset-0 bg-black bg-opacity-50 rounded-lg transition-opacity duration-300"></div>
+  <div class="content relative z-10 flex flex-col justify-center items-center text-center h-full transition-all duration-300">
+    <h3 class="title text-xl font-semibold mb-4 text-white transition-all duration-300">{title}</h3>
+    <p class="description text-gray-200 opacity-0 transition-opacity duration-300 mt-4">{description}</p>
+  </div>
+</div>
+
+<style>
+  .service-card {
+    height: 250px; /* Ajusta según sea necesario */
+    position: relative;
+    overflow: hidden;
+  }
+  .background-image {
+    filter: blur(0);
+    z-index: 1;
+  }
+  .service-card:hover .background-image {
+    filter: blur(5px);
+  }
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+  }
+  .service-card:hover .description {
+    opacity: 1;
+  }
+  .service-card:hover .overlay {
+    opacity: 0.7;
+  }
+  .service-card:hover .title {
+    transform: translateY(-50%); /* Mueve el título hacia arriba */
+    top: 1rem; /* Ajusta la posición hacia arriba */
+  }
+  .content {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  .fade-in {
+    opacity: 0;
+    transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+    transform: translateY(20px);
+  }
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>

@@ -1,5 +1,4 @@
 ---
-
 const testimonials = [
   {
     name: "Alberto Garcia",
@@ -47,18 +46,17 @@ const testimonials = [
     rating: 5,
   },
 ];
-
 ---
 
 <section id="testimonios" class="py-20 bg-lightBackground dark:bg-darkBackground">
   <div class="container mx-auto text-center max-w-7xl px-4">
-    <h2 class="text-4xl font-semibold mb-12 text-blue-600">Qué Dicen Nuestros Clientes</h2>
+    <h2 class="fade-in text-4xl font-semibold mb-12 text-gray-900 dark:text-white">Qué Dicen Nuestros Clientes</h2>
     <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-      {testimonials.map((testimonial) => (
-        <div class="bg-lightBackground dark:bg-darkBackground p-6 rounded-lg shadow-lg hover:shadow-2xl transition transform hover:-translate-y-2">
-          <p class="text-lg italic mb-4 text-lightText dark:text-darkText">"{testimonial.text}"</p>
+      {testimonials.map((testimonial, index) => (
+        <div class="fade-in testimonial-item bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-2xl transition transform hover:-translate-y-2">
+          <p class="text-lg italic mb-4 text-gray-700 dark:text-gray-300">"{testimonial.text}"</p>
           <div class="text-left">
-            <h3 class="text-xl font-semibold text-lightText dark:text-darkText">{testimonial.name}</h3>
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-white">{testimonial.name}</h3>
             <p class="text-yellow-500">
               {"★".repeat(testimonial.rating)}
             </p>
@@ -69,9 +67,25 @@ const testimonials = [
   </div>
 </section>
 
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const elements = document.querySelectorAll(".fade-in");
+    elements.forEach((element, index) => {
+      setTimeout(() => {
+        element.classList.add("visible");
+      }, index * 300); // Delay entre las animaciones de cada elemento
+    });
+  });
+</script>
+
 <style>
-  .bg-gray-100 {
-    background: #f7fafc;
+  .fade-in {
+    opacity: 0;
+    transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+    transform: translateY(20px);
   }
-  
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
 </style>

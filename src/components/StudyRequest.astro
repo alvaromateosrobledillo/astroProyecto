@@ -1,0 +1,38 @@
+<section id="study-request" class="py-16 bg-blue-50 dark:bg-gray-800">
+  <div class="container mx-auto text-center">
+    <div class="fade-in max-w-xl mx-auto p-8 bg-white dark:bg-gray-900 rounded-lg shadow-lg transform transition-transform duration-300 hover:shadow-2xl hover:-translate-y-2">
+      <h2 class="text-3xl font-semibold mb-6 text-gray-900 dark:text-white">
+        ¿QUIERES AHORRAR EN TU FACTURA DE LA LUZ?
+      </h2>
+      <p class="text-lg mb-8 text-gray-700 dark:text-gray-300">
+        Solicita un estudio personalizado a nuestro equipo de ingenieros y descubre ahora mismo cuánto puedes AHORRAR.
+      </p>
+      <a href="mailto:info@energiasolarlamartina.com" class="mt-8 inline-block bg-accent text-white py-3 px-6 rounded-full font-semibold transition transform duration-300 hover:scale-105 hover:bg-amber-600">
+        SOLICITA TU ESTUDIO
+      </a>
+    </div>
+  </div>
+</section>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const elements = document.querySelectorAll(".fade-in");
+    elements.forEach((element, index) => {
+      setTimeout(() => {
+        element.classList.add("visible");
+      }, index * 300); // Delay entre las animaciones de cada elemento
+    });
+  });
+</script>
+
+<style>
+  .fade-in {
+    opacity: 0;
+    transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+    transform: translateY(20px);
+  }
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>

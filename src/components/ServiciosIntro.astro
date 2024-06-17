@@ -1,62 +1,31 @@
 ---
-import Icon from './icons/Icon.astro';
-
-const services = [
-  {
-    title: "Instalación de Placas Solares",
-    description: "Realizamos instalaciones de alta calidad para garantizar el máximo aprovechamiento de la energía solar.",
-    icon: "solar-panel"
-  },
-  {
-    title: "Mantenimiento y Soporte Técnico",
-    description: "Ofrecemos servicios de mantenimiento y soporte técnico para asegurar el correcto funcionamiento de tus placas solares.",
-    icon: "tools"
-  },
-  {
-    title: "Consultoría Energética",
-    description: "Proporcionamos asesoramiento personalizado para optimizar el consumo energético y reducir costes.",
-    icon: "chart-bar"
-  },
-  {
-    title: "Financiación",
-    description: "Ofrecemos opciones de financiación adaptadas a tus necesidades para facilitar la inversión en energía solar.",
-    icon: "currency"
-  },
-  {
-    title: "Auditorías Energéticas",
-    description: "Realizamos auditorías energéticas para identificar oportunidades de mejora en la eficiencia energética.",
-    icon: "clipboard-check"
-  },
-  {
-    title: "Capacitación y Formación",
-    description: "Ofrecemos programas de capacitación y formación en energía solar para particulares y empresas.",
-    icon: "school"
-  }
-];
+import ServiceCard from "./ServiceCard.astro";
 ---
 
-<section id="servicios" class="py-20 bg-lightBackground dark:bg-darkBackground">
-  <div class="container mx-auto text-center max-w-5xl px-4">
-    <h2 class="text-4xl font-bold mb-12 text-blue-600 dark:text-blue-400">Nuestros Servicios</h2>
-    <p class="text-lg mb-12 text-lightText dark:text-darkText">En Energía Solar La Martina, ofrecemos una amplia gama de servicios para cubrir todas tus necesidades energéticas con soluciones sostenibles y eficientes.</p>
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-      {services.map(service => (
-        <div class="group bg-lightBackground dark:bg-darkBackground shadow-lg rounded-lg p-6 hover:shadow-2xl transition transform hover:scale-105">
-          <div class="w-16 h-16 mx-auto mb-4 text-blue-600 dark:text-blue-400">
-            <Icon name={service.icon} class="text-5xl" />
-          </div>
-          <h3 class="text-xl font-semibold mb-2 text-lightText dark:text-darkText">{service.title}</h3>
-          <p class="text-lightText dark:text-darkText">{service.description}</p>
-        </div>
-      ))}
+<section id="servicios" class="py-16 bg-lightBackground dark:bg-darkBackground">
+  <div class="container mx-auto text-center max-w-7xl px-4">
+    <h2 class="fade-in text-4xl font-semibold mb-12 text-primary dark:text-secondary">Nuestros Servicios</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+      <ServiceCard title="Instalación Eléctrica" description="Hay un elemento muy importante de nuestro día a día que no le damos mucha importancia y es la instalación eléctrica de nuestra vivienda o empresa. Debemos de tener en cuenta que también necesita de un mantenimiento, para que nunca deje de funcionar y es cuando vienen las urgencias de cortes de luz o incendio por un mal mantenimiento." backgroundImage="./projects/instalacion_electrica.jpg" />
+      <ServiceCard title="Instalación Fotovoltaica" description="Con un buen mantenimiento de las placas, conseguirás que la instalación de las placas solares tenga mayor durabilidad y rendimiento." backgroundImage="./projects/fotovoltaica.jpeg" />
+      <ServiceCard title="Instalación Eléctrica Residencial" description="Inspección seguridad electricidad y mantenimiento, Cuadro eléctrico, Iluminación, Iluminación tipo LED, Circuitos eléctricos y subcuadros, Obra nueva, Telecomunicación, Detección de averías eléctricas." backgroundImage="./projects/residencial.jpg" />
+      <ServiceCard title="Instalación Placas Solares" description="Reducir tu factura de luz un 70%, Menos dependencia a las fluctuaciones del mercado eléctrico, Contribuir a la preservación del medio ambiente, Revalorizarás el valor en el mercado inmobiliario." backgroundImage="./projects/fotovoltaica.jpeg" />
+      <ServiceCard title="Instalación Eléctrica Industrial" description="Inspección seguridad electricidad y mantenimiento, Cuadro eléctrico, Iluminación, Iluminación tipo LED, Circuitos eléctricos y subcuadros, Obra nueva, Telecomunicación, Detección de averías eléctricas." backgroundImage="./projects/industrial.jpg" />
+      <ServiceCard title="Instalación Recarga de Vehículo Eléctrico e Híbrido Enchufable" description="Nos encargamos de todo: pedir subvenciones, legalizar instalación, e instalar el cargador de coche en tu vivienda unifamiliar, empresa o comunidad de propietarios." backgroundImage="./projects/vehiculos.jpg" />
+      <ServiceCard title="Instalación Aislada Red" description="Si tu chalet, casa de campo, granja o huerto está muy aislada de la red y no tienes acceso a luz, tu solución es una instalación de placas solares aislada, completamente autónoma." backgroundImage="./projects/aislada.png" />
+      <ServiceCard title="Boletín Eléctrico" description="Es un documento que acredita que tu instalación cumple normativa y es adecuada para su modificación o alta nuevo suministro de luz." backgroundImage="./projects/boletin.jpg" />
+      <ServiceCard title="Legalización Autoconsumo a Red" description="Nos encargamos que nada más esté hecha la instalación de las placas solares, registremos la instalación y puedas disfrutar de la compensación de excedentes de tu próxima factura de luz." backgroundImage="./projects/autoconsumo.jpg" />
     </div>
-    <a href="/servicios" class="mt-12 inline-block bg-blue-500 text-white py-3 px-6 rounded-full font-semibold hover:bg-blue-600 transition">Más Información</a>
   </div>
 </section>
 
-<style>
-  .group:hover .icon {
-    transform: rotate(360deg);
-    transition: transform 0.5s;
-  }
-</style>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const elements = document.querySelectorAll(".fade-in");
+    elements.forEach((element, index) => {
+      setTimeout(() => {
+        element.classList.add("visible");
+      }, index * 300); // Delay entre las animaciones de cada elemento
+    });
+  });
+</script>
