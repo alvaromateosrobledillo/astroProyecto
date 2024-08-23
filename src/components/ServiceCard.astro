@@ -2,18 +2,28 @@
 const { title, description, backgroundImage } = Astro.props;
 ---
 
-<div class="service-card relative bg-cover bg-center p-6 rounded-lg shadow-lg transform transition-transform duration-300 hover:shadow-2xl hover:-translate-y-2 fade-in">
-  <div class="background-image absolute inset-0 bg-cover bg-center rounded-lg transition-filter duration-300" style={`background-image: url(${backgroundImage});`}></div>
-  <div class="overlay absolute inset-0 bg-black bg-opacity-50 rounded-lg transition-opacity duration-300"></div>
-  <div class="content relative z-10 flex flex-col justify-center items-center text-center h-full transition-all duration-300">
-    <h3 class="title text-xl font-semibold mb-4 text-white transition-all duration-300">{title}</h3>
-    <p class="description text-gray-200 opacity-0 transition-opacity duration-300 mt-4">{description}</p>
+<div class="service-card flex flex-col justify-between relative bg-cover bg-center p-6 rounded-lg shadow-lg transform transition-transform duration-500 hover:shadow-2xl hover:-translate-y-3 fade-in">
+  <div class="background-image absolute inset-0 bg-cover bg-center rounded-lg transition-filter duration-500" style={`background-image: url(${backgroundImage});`}></div>
+  <div class="overlay absolute inset-0 bg-black bg-opacity-50 rounded-lg transition-opacity duration-500"></div>
+  <div class="content relative z-10 flex flex-col justify-between text-center h-full transition-all duration-500">
+    <div class="mb-6">
+      <h3 class="title text-xl font-semibold mb-2 text-white transition-all duration-500">{title}</h3>
+      <p class="description text-gray-200 opacity-0 transition-opacity duration-500 mt-4">{description}</p>
+    </div>
+    <div class="mt-6">
+      <a href="#contact" class="inline-block bg-gradient-to-r from-orange-500 to-yellow-500 text-white py-2 px-4 rounded-full text-sm font-medium transition-transform duration-300 hover:scale-105">Más Información</a>
+    </div>
+    <div class="social-icons mt-4 flex justify-center space-x-4 opacity-0 transition-opacity duration-500">
+      <a href="https://facebook.com" class="text-white hover:text-orange-500 transition duration-300"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://twitter.com" class="text-white hover:text-orange-500 transition duration-300"><i class="fab fa-twitter"></i></a>
+      <a href="https://linkedin.com" class="text-white hover:text-orange-500 transition duration-300"><i class="fab fa-linkedin-in"></i></a>
+    </div>
   </div>
 </div>
 
 <style>
   .service-card {
-    height: 250px; /* Ajusta según sea necesario */
+    height: 350px; /* Ajustado para más espacio vertical */
     position: relative;
     overflow: hidden;
   }
@@ -22,7 +32,7 @@ const { title, description, backgroundImage } = Astro.props;
     z-index: 1;
   }
   .service-card:hover .background-image {
-    filter: blur(5px);
+    filter: blur(8px); /* Desenfoque en hover */
   }
   .overlay {
     position: absolute;
@@ -32,15 +42,15 @@ const { title, description, backgroundImage } = Astro.props;
     height: 100%;
     z-index: 2;
   }
-  .service-card:hover .description {
+  .service-card:hover .description,
+  .service-card:hover .social-icons {
     opacity: 1;
   }
   .service-card:hover .overlay {
-    opacity: 0.7;
+    opacity: 0.8;
   }
   .service-card:hover .title {
-    transform: translateY(-50%); /* Mueve el título hacia arriba */
-    top: 1rem; /* Ajusta la posición hacia arriba */
+    transform: translateY(-30%);
   }
   .content {
     position: relative;
@@ -51,8 +61,6 @@ const { title, description, backgroundImage } = Astro.props;
     align-items: center;
     text-align: center;
     height: 100%;
-    top: 50%;
-    transform: translateY(-50%);
   }
   .fade-in {
     opacity: 0;

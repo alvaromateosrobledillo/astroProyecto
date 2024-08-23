@@ -1,23 +1,27 @@
 ---
 import Layout from "@/layouts/Layout.astro";
-import Hero from "@/components/Hero.astro";
-import AboutUs from "@/components/AboutUs.astro";
+import Hero from "@/components/Hero.jsx";
+import AboutUs from "@/components/AboutUs";
 import ServiciosIntro from "@/components/ServiciosIntro.astro";
 import ProjectsIntro from "@/components/ProjectsIntro.astro";
 import SubvencionesIntro from "@/components/SubvencionesIntro.astro";
-import Testimonios from "@/components/Testimonios.astro";
-import StudyRequest from "@/components/StudyRequest.astro";
-import Contact from "@/components/ContactCTA.astro";
+ import StudyRequest from "@/components/StudyRequest.astro";
+import ContactCTA from "@/components/Contacto";
+import TestimonialsSlider from '../components/TestimonialsSlider';
+import ProjectsShowcase from "@/components/ProjectShowcase";
+import GrantSection from "@/components/GrantSection";
 
 ---
 
 <Layout title="Energía Solar La Martina" description="Instalación de placas solares en Castellón de la Plana.">
   <Hero />
   <AboutUs />
-  <Testimonios />
-  <StudyRequest />
-
+ 
   <ServiciosIntro />
-   <SubvencionesIntro />
-  <Contact />
+ <GrantSection client:load />  
+<ProjectsShowcase client:load />
+
+   <TestimonialsSlider client:load   />
+
+  <ContactCTA client:load  />
 </Layout>

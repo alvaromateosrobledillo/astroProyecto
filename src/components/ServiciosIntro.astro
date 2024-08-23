@@ -2,19 +2,20 @@
 import ServiceCard from "./ServiceCard.astro";
 ---
 
-<section id="servicios" class="py-16 bg-lightBackground dark:bg-darkBackground">
-  <div class="container mx-auto text-center max-w-7xl px-4">
+<section id="servicios" class="py-16 bg-lightBackground dark:bg-darkBackground relative overflow-hidden">
+  <div class="absolute inset-0 bg-fixed bg-center bg-cover" style="background-image: url('./projects/background.jpg'); transform: translateZ(0) scale(1.1);"></div>
+  <div class="container mx-auto text-center max-w-7xl px-4 relative z-10">
     <h2 class="fade-in text-4xl font-semibold mb-12 text-primary dark:text-secondary">Nuestros Servicios</h2>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
-      <ServiceCard title="Instalación Eléctrica" description="Hay un elemento muy importante de nuestro día a día que no le damos mucha importancia y es la instalación eléctrica de nuestra vivienda o empresa. Debemos de tener en cuenta que también necesita de un mantenimiento, para que nunca deje de funcionar y es cuando vienen las urgencias de cortes de luz o incendio por un mal mantenimiento." backgroundImage="./projects/instalacion_electrica.jpg" />
-      <ServiceCard title="Instalación Fotovoltaica" description="Con un buen mantenimiento de las placas, conseguirás que la instalación de las placas solares tenga mayor durabilidad y rendimiento." backgroundImage="./projects/fotovoltaica.jpeg" />
-      <ServiceCard title="Instalación Eléctrica Residencial" description="Inspección seguridad electricidad y mantenimiento, Cuadro eléctrico, Iluminación, Iluminación tipo LED, Circuitos eléctricos y subcuadros, Obra nueva, Telecomunicación, Detección de averías eléctricas." backgroundImage="./projects/residencial.jpg" />
-      <ServiceCard title="Instalación Placas Solares" description="Reducir tu factura de luz un 70%, Menos dependencia a las fluctuaciones del mercado eléctrico, Contribuir a la preservación del medio ambiente, Revalorizarás el valor en el mercado inmobiliario." backgroundImage="./projects/fotovoltaica.jpeg" />
-      <ServiceCard title="Instalación Eléctrica Industrial" description="Inspección seguridad electricidad y mantenimiento, Cuadro eléctrico, Iluminación, Iluminación tipo LED, Circuitos eléctricos y subcuadros, Obra nueva, Telecomunicación, Detección de averías eléctricas." backgroundImage="./projects/industrial.jpg" />
-      <ServiceCard title="Instalación Recarga de Vehículo Eléctrico e Híbrido Enchufable" description="Nos encargamos de todo: pedir subvenciones, legalizar instalación, e instalar el cargador de coche en tu vivienda unifamiliar, empresa o comunidad de propietarios." backgroundImage="./projects/vehiculos.jpg" />
-      <ServiceCard title="Instalación Aislada Red" description="Si tu chalet, casa de campo, granja o huerto está muy aislada de la red y no tienes acceso a luz, tu solución es una instalación de placas solares aislada, completamente autónoma." backgroundImage="./projects/aislada.png" />
-      <ServiceCard title="Boletín Eléctrico" description="Es un documento que acredita que tu instalación cumple normativa y es adecuada para su modificación o alta nuevo suministro de luz." backgroundImage="./projects/boletin.jpg" />
-      <ServiceCard title="Legalización Autoconsumo a Red" description="Nos encargamos que nada más esté hecha la instalación de las placas solares, registremos la instalación y puedas disfrutar de la compensación de excedentes de tu próxima factura de luz." backgroundImage="./projects/autoconsumo.jpg" />
+      <ServiceCard title="Instalación Eléctrica" description="Realizamos instalaciones eléctricas seguras y eficientes, cumpliendo con las normativas vigentes y asegurando un suministro estable y fiable para tu hogar o empresa." backgroundImage="./projects/instalacion_electrica.jpg" />
+      <ServiceCard title="Instalación Fotovoltaica" description="Instalamos sistemas fotovoltaicos duraderos, optimizados para maximizar la captación solar y reducir tu dependencia de la red eléctrica." backgroundImage="./projects/fotovoltaica.jpeg" />
+      <ServiceCard title="Instalación Eléctrica Residencial" description="Especialistas en instalaciones eléctricas residenciales, garantizando la seguridad y eficiencia en cada proyecto, desde iluminación hasta telecomunicaciones." backgroundImage="./projects/residencial.jpg" />
+      <ServiceCard title="Instalación Placas Solares" description="Reduce tu factura de electricidad y aumenta el valor de tu propiedad con una instalación de placas solares personalizada para tus necesidades." backgroundImage="./projects/fotovoltaica.jpeg" />
+      <ServiceCard title="Instalación Eléctrica Industrial" description="Ofrecemos soluciones eléctricas industriales integrales, adaptadas a la demanda de tu empresa, cumpliendo con los más altos estándares de seguridad." backgroundImage="./projects/industrial.jpg" />
+      <ServiceCard title="Instalación Recarga Vehículo Eléctrico" description="Instalamos puntos de recarga para vehículos eléctricos, gestionando todo el proceso desde la legalización hasta la instalación del equipo." backgroundImage="./projects/vehiculos.jpg" />
+      <ServiceCard title="Instalación Aislada Red" description="Soluciones energéticas para ubicaciones aisladas, con instalaciones solares que te permiten ser completamente autosuficiente y independiente de la red." backgroundImage="./projects/aislada.png" />
+      <ServiceCard title="Boletín Eléctrico" description="Acreditamos que tu instalación cumple con la normativa vigente, permitiendo su modificación o alta de un nuevo suministro eléctrico." backgroundImage="./projects/boletin.jpg" />
+      <ServiceCard title="Legalización Autoconsumo a Red" description="Nos encargamos de registrar y legalizar tu instalación solar para que puedas disfrutar de la compensación de excedentes en tu factura de luz." backgroundImage="./projects/autoconsumo.jpg" />
     </div>
   </div>
 </section>
