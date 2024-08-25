@@ -68,7 +68,7 @@ const TestimonialsSlider: React.FC = () => {
 
   return (
     <>
-      <section className="bg-gradient-to-r from-orange-100 to-yellow-100 py-16 px-4 sm:px-6 lg:px-8 min-h-screen flex flex-col">
+      <section className="bg-gradient-to-r from-orange-100 to-yellow-100 py-32 px-4 sm:px-6 lg:px-8 min-h-screen flex flex-col">
         {/* Título y descripción con animaciones */}
         <motion.div
           initial={{ y: -50, opacity: 0 }}
