@@ -37,7 +37,7 @@ const Hero = () => {
         id="heroContent"
         className="absolute inset-0 flex flex-col justify-center items-center text-center text-white p-6 z-10 transition-transform duration-300"
       >
-        <h1 className="text-5xl md:text-7xl font-bold mb-4 text-white tracking-wide animate-fadeIn">
+        <h1 className="text-5xl md:text-7xl font-bold mb-4 tracking-wide animate-fadeIn">
           LA MARTINA
           <br />
           <span className="text-xl md:text-3xl text-orange-400">
@@ -59,26 +59,12 @@ const Hero = () => {
         </a>
       </div>
 
-      <div className="absolute inset-x-0 bottom-10 text-white flex justify-center items-center z-10 md:hidden">
-        <a href="#siguienteSeccion" className="flex flex-col items-center">
-          <div className="animate-bounce">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              className="w-10 h-10"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M12 4v8m4 4H8"
-              />
-            </svg>
-          </div>
-          <span className="mt-2 text-sm font-semibold tracking-wide">
-            Desplazar
+      {/* Indicador de desplazamiento centrado */}
+      <div className="absolute bottom-6 inset-x-0 text-center text-white flex justify-center items-center z-10">
+        <a href="#servicios" className="flex flex-col items-center">
+          <div className="animate-bounce text-3xl sm:text-4xl">↓</div>
+          <span className="mt-2 text-xs sm:text-sm font-medium tracking-wide">
+            Desplázate hacia abajo
           </span>
         </a>
       </div>
