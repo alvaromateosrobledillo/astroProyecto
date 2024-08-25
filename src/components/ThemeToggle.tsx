@@ -1,22 +1,38 @@
-import React, { useState, useEffect } from 'react';
-import { SunIcon, MoonIcon, ComputerDesktopIcon as SystemIcon } from '@heroicons/react/24/outline';
+import React, { useState, useEffect } from "react";
+import {
+  SunIcon,
+  MoonIcon,
+  ComputerDesktopIcon as SystemIcon,
+} from "@heroicons/react/24/outline";
+
+// Definir un alias para el tipo de tema
+type Theme = "light" | "dark" | "system";
 
 const ThemeToggle = () => {
-  const THEMES = ["light", "dark", "system"];
-  const [theme, setTheme] = useState("system");
+  const THEMES: Array<Theme> = ["light", "dark", "system"];
+  const [theme, setTheme] = useState<Theme>("system");
 
   useEffect(() => {
-    const savedTheme = localStorage.getItem("theme") || "system";
-    setTheme(savedTheme);
-    updateTheme(savedTheme);
+    const savedTheme = localStorage.getItem("theme") as Theme | null;
+    if (savedTheme && THEMES.includes(savedTheme)) {
+      setTheme(savedTheme);
+      updateTheme(savedTheme);
+    } else {
+      updateTheme("system");
+    }
   }, []);
 
-  const updateTheme = (newTheme) => {
+  const updateTheme = (newTheme: Theme) => {
     setTheme(newTheme);
     localStorage.setItem("theme", newTheme);
-    document.documentElement.className = newTheme === "system"
-      ? (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light")
-      : newTheme;
+
+    const systemTheme = window.matchMedia("(prefers-color-scheme: dark)")
+      .matches
+      ? "dark"
+      : "light";
+    const appliedTheme = newTheme === "system" ? systemTheme : newTheme;
+
+    document.documentElement.className = appliedTheme;
   };
 
   return (
