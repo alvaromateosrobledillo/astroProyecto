@@ -1,6 +1,7 @@
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
+import { motion } from "framer-motion";
 
 // Importa los estilos necesarios
 import "swiper/css";
@@ -48,7 +49,7 @@ const ProjectsShowcase = () => {
   } as React.CSSProperties;
 
   return (
-    <section id="projects" className="py-20 bg-gray-100 dark:bg-gray-900">
+    <section id="proyecto" className="py-20 bg-gray-100 dark:bg-gray-900">
       <div className="container mx-auto">
         <h2 className="text-5xl font-extrabold text-center text-gray-900 dark:text-white mb-16">
           Nuestros Proyectos
@@ -88,12 +89,15 @@ const ProjectsShowcase = () => {
         </Swiper>
 
         <div className="text-center mt-16 sm:mt-20">
-          <a
-            href="#contacto"
+          <motion.a
+            href="https://wa.me/34624340422?text=Hola,%20me%20gustaría%20obtener%20más%20información%20sobre%20sus%20servicios."
             className="inline-block bg-gradient-to-r from-orange-500 to-yellow-500 text-white py-4 px-10 sm:py-5 sm:px-12 rounded-full text-xl font-bold transition-transform duration-300 hover:scale-110 shadow-lg hover:shadow-2xl"
+            whileHover={{ scale: 1.1 }}
+            target="_blank"
+            rel="noopener noreferrer"
           >
             Contáctanos para Más Información
-          </a>
+          </motion.a>
         </div>
       </div>
     </section>

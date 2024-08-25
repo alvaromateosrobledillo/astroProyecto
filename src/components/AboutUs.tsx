@@ -74,14 +74,16 @@ const AboutAndStudyRequest = () => {
         <div className="container mx-auto text-center relative z-10 px-4">
           <div className="fade-in max-w-xl mx-auto p-6 md:p-8 bg-white rounded-lg shadow-lg transform transition-transform duration-300 hover:shadow-2xl hover:-translate-y-2">
             <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-900 tracking-wide">
-              <span className="text-orange-500">¿QUIERES AHORRAR</span> EN TU FACTURA DE LA LUZ?
+              <span className="text-orange-500">¿QUIERES AHORRAR</span> EN TU
+              FACTURA DE LA LUZ?
             </h2>
             <p className="text-base md:text-lg mb-8 text-gray-700">
-              Solicita un estudio personalizado a nuestro equipo de ingenieros y descubre cuánto puedes{" "}
+              Solicita un estudio personalizado a nuestro equipo de ingenieros y
+              descubre cuánto puedes{" "}
               <span className="font-semibold text-orange-500">AHORRAR</span>.
             </p>
             <a
-              href="mailto:info@energiasolarlamartina.com"
+              href="https://calculadora-lamartina.vercel.app/"
               className="mt-4 md:mt-8 inline-block bg-gradient-to-r from-orange-500 to-yellow-500 text-white py-3 px-6 rounded-full font-semibold transition-transform duration-300 hover:scale-105 hover:bg-amber-600 shadow-md hover:shadow-lg"
             >
               SOLICITA TU ESTUDIO

@@ -113,17 +113,19 @@ const TestimonialsSlider: React.FC = () => {
             cómo podemos ayudarte a alcanzar tus objetivos.
           </p>
           <motion.a
-            href="#contacto"
+            href="https://wa.me/34624340422?text=Hola,%20me%20gustaría%20obtener%20más%20información%20sobre%20sus%20servicios."
             initial={{ scale: 0.8 }}
             animate={{ scale: 1 }}
             transition={{ duration: 0.5 }}
+            target="_blank"
+            rel="noopener noreferrer"
             className="mt-8 inline-block bg-gradient-to-r from-orange-500 to-yellow-500 text-white py-3 px-8 rounded-full text-lg font-medium transition-transform duration-300 hover:scale-105"
           >
             Contáctanos Ahora
           </motion.a>
         </div>
         {/* Contenedor de las tarjetas de testimonios */}
-        <div className="flex items-center justify-center mt-64">
+        <div className="flex items-center justify-center mt-64 mb-32">
           {" "}
           {/* Reducción del margen superior */}
           <div className="relative w-full max-w-3xl mx-auto">

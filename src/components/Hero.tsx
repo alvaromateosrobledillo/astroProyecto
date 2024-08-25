@@ -52,7 +52,7 @@ const Hero = () => {
           electricidad.
         </p>
         <a
-          href="#contacto"
+          href="https://calculadora-lamartina.vercel.app/"
           className="inline-block bg-gradient-to-r from-orange-500 to-yellow-500 text-white py-3 px-8 rounded-full text-lg font-medium transition-transform duration-300 hover:scale-110 hover:shadow-xl animate-pulse"
         >
           Solicita Estudio

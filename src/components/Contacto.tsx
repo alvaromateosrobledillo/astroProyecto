@@ -52,9 +52,11 @@ const ContactCTA = () => {
             </div>
           </div>
           <motion.a
-            href="mailto:inf.lamartina@gmail.com"
+            href="https://wa.me/34624340422?text=Hola,%20me%20gustaría%20obtener%20más%20información%20sobre%20sus%20servicios."
             className="mt-8 inline-block bg-gradient-to-r from-gradientFrom to-gradientTo text-white py-3 px-6 rounded-full font-semibold transition-transform duration-300 hover:scale-105 hover:bg-orange-700 shadow-md hover:shadow-lg"
             whileHover={{ scale: 1.1 }}
+            target="_blank"
+            rel="noopener noreferrer"
           >
             CONTÁCTENOS
           </motion.a>

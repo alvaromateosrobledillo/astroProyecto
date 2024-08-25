@@ -5,6 +5,7 @@ import {
   BriefcaseIcon,
   PhoneIcon,
   CogIcon,
+  ClipboardIcon, // Importamos un nuevo icono
 } from "@heroicons/react/24/outline";
 import ThemeToggle from "./ThemeToggle";
 
@@ -127,23 +128,12 @@ const HeaderReact = () => {
             ))}
 
             <a
-              href="#contacto"
-              className="inline-block bg-gradient-to-r from-orange-500 to-yellow-500 text-white py-3 px-8 rounded-full text-lg font-medium transition-transform duration-300 hover:scale-105 mt-8"
+              href="https://calculadora-lamartina.vercel.app/"
+              className="inline-block bg-gradient-to-r from-orange-500 to-yellow-500 text-white py-3 px-8 rounded-full text-lg font-medium transition-transform duration-300 hover:scale-105 mt-8 flex items-center justify-center shadow-lg"
               onClick={() => setMenuOpen(false)}
             >
-              Solicita Estudio
+              <ClipboardIcon className="w-6 h-6 mr-2" /> Solicita Estudio
             </a>
-
-            <motion.button
-              whileHover={{
-                scale: 1.1,
-                boxShadow: "0px 10px 30px rgba(0, 0, 0, 0.2)",
-              }}
-              className="w-full max-w-xs flex items-center justify-center bg-gradient-to-r from-primary via-primary-dark to-accent text-white font-bold py-3 mt-4 rounded-full transition duration-300 hover:scale-105 animate-pulse"
-              onClick={() => setMenuOpen(false)}
-            >
-              INICIAR SESIÓN
-            </motion.button>
           </nav>
         </motion.div>
       )}
