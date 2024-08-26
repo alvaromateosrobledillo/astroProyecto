@@ -18,7 +18,7 @@ const navItems = [
   },
   {
     title: "PROYECTOS",
-    url: "/#proyectos",
+    url: "/#proyecto",
     icon: <BriefcaseIcon className="w-6 h-6 mr-2" />,
   },
   {

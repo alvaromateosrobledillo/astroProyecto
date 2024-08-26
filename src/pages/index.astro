@@ -14,14 +14,14 @@ import GrantSection from "@/components/GrantSection";
 ---
 
 <Layout title="Energía Solar La Martina" description="Instalación de placas solares en Castellón de la Plana.">
-  <Hero />
-  <AboutUs />
+  <Hero client:load/>
+  <AboutUs client:visible />
  
-  <ServiciosIntro />
- <GrantSection client:load />  
-<ProjectsShowcase client:load />
+  <ServiciosIntro  />
+ <GrantSection client:visible />  
+<ProjectsShowcase client:visible />
 
-   <TestimonialsSlider client:load   />
+   <TestimonialsSlider client:visible   />
 
-  <ContactCTA client:load  />
+  <ContactCTA client:visible   />
 </Layout>

@@ -24,6 +24,23 @@ const grants = [
 ];
 
 const GrantsSection = () => {
+  const containerVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        delayChildren: 0.3,
+        staggerChildren: 0.2,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0 },
+  };
+
   return (
     <section
       id="subvenciones"
@@ -50,17 +67,26 @@ const GrantsSection = () => {
           comodidad de los clientes. También te informaremos de las ayudas al
           autoconsumo que haya.
         </motion.p>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <motion.div
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          initial="hidden"
+          animate="visible"
+          variants={containerVariants}
+        >
           {grants.map((grant, index) => (
             <motion.div
               key={index}
               className="p-6 bg-white dark:bg-gray-800 rounded-lg shadow-lg transition-transform duration-300 hover:shadow-2xl"
               whileHover={{ translateY: -5 }}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.2 }}
+              variants={itemVariants}
             >
-              <div className="flex justify-center">{grant.icon}</div>
+              <motion.div
+                className="flex justify-center"
+                whileHover={{ rotate: 10, scale: 1.1 }}
+                transition={{ duration: 0.3 }}
+              >
+                {grant.icon}
+              </motion.div>
               <h3 className="text-2xl font-semibold mb-4 text-orange-600 dark:text-yellow-500">
                 {grant.title}
               </h3>
@@ -69,7 +95,7 @@ const GrantsSection = () => {
               </p>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
         <motion.a
           href="https://wa.me/34624340422?text=Hola,%20me%20gustaría%20obtener%20más%20información%20sobre%20sus%20servicios."
           className="mt-8 inline-block bg-gradient-to-r from-orange-600 to-yellow-500 text-white py-3 px-6 rounded-full font-semibold transition-transform duration-300 hover:scale-105"

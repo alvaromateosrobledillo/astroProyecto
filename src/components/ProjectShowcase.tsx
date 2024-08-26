@@ -51,9 +51,14 @@ const ProjectsShowcase = () => {
   return (
     <section id="proyecto" className="py-20 bg-gray-100 dark:bg-gray-900">
       <div className="container mx-auto">
-        <h2 className="text-5xl font-extrabold text-center text-gray-900 dark:text-white mb-16">
+        <motion.h2
+          className="text-5xl font-extrabold text-center text-gray-900 dark:text-white mb-16"
+          initial={{ opacity: 0, y: -50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
           Nuestros Proyectos
-        </h2>
+        </motion.h2>
 
         <Swiper
           modules={[Navigation, Pagination, Autoplay]}
@@ -67,23 +72,43 @@ const ProjectsShowcase = () => {
           className="mySwiper"
           style={customStyles}
         >
-          {projects.map((project) => (
+          {projects.map((project, index) => (
             <SwiperSlide key={project.title}>
-              <div className="relative overflow-hidden rounded-3xl shadow-2xl h-112 sm:h-128 md:h-160 lg:h-192">
+              <motion.div
+                className="relative overflow-hidden rounded-3xl shadow-2xl h-112 sm:h-128 md:h-160 lg:h-192"
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.7, delay: index * 0.2 }}
+              >
                 <img
                   src={project.image}
                   alt={project.title}
                   className="w-full h-full object-cover transition-transform duration-700 transform hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center flex-col p-6 transition-opacity duration-300 hover:bg-opacity-75">
-                  <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white text-center">
+                <motion.div
+                  className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center flex-col p-6 transition-opacity duration-300 hover:bg-opacity-75"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.5, delay: 0.2 }}
+                >
+                  <motion.h3
+                    className="text-2xl sm:text-3xl md:text-4xl font-bold text-white text-center"
+                    initial={{ opacity: 0, y: 50 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5 }}
+                  >
                     {project.title}
-                  </h3>
-                  <p className="text-lg sm:text-xl md:text-2xl text-white mt-4 text-center">
+                  </motion.h3>
+                  <motion.p
+                    className="text-lg sm:text-xl md:text-2xl text-white mt-4 text-center"
+                    initial={{ opacity: 0, y: 50 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: 0.3 }}
+                  >
                     {project.description}
-                  </p>
-                </div>
-              </div>
+                  </motion.p>
+                </motion.div>
+              </motion.div>
             </SwiperSlide>
           ))}
         </Swiper>
