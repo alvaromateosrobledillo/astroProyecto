@@ -1,132 +1,158 @@
-import React from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination, Autoplay } from "swiper/modules";
-import { motion } from "framer-motion";
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
-// Importa los estilos necesarios
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
+// Definir la interfaz para los proyectos
+interface Project {
+  id: number;
+  image: string;
+  title: string;
+  description: string;
+}
 
-const ProjectsShowcase = () => {
-  const projects = [
-    {
-      image: "/INSTALACIONES/LOCALALMAZORA1/almazora.jpeg",
-      title: "Instalación de Energía Solar en Almazora",
-      description:
-        "Esta instalación de 8kWn en Almazora marca un paso firme hacia un futuro más sostenible. Los beneficios incluyen una significativa reducción de costos energéticos, mayor autonomía energética, y un aumento en el valor de la propiedad.",
-    },
-    {
-      image: "/INSTALACIONES/LOCALALMAZORA2/almazora2.jpeg",
-      title: "Planta Fotovoltaica en Alicante",
-      description:
-        "Desarrollo de una planta fotovoltaica de 2MW en Alicante, diseñada para maximizar la eficiencia energética y contribuir a la reducción del impacto ambiental. Ideal para grandes instalaciones que buscan sustentabilidad y ahorro a largo plazo.",
-    },
-    {
-      image: "/projects/aislada.png",
-      title: "Optimización Energética en Castellón",
-      description:
-        "Proyecto en una fábrica de Castellón, enfocado en la reducción del consumo energético mediante soluciones innovadoras y la instalación de paneles solares de alta eficiencia. Perfecto para empresas que desean mejorar su rentabilidad y sostenibilidad.",
-    },
-    {
-      image: "/projects/aislada.png",
-      title: "Energía Renovable en Valencia",
-      description:
-        "Implementación de un sistema de energía renovable en un edificio corporativo en Valencia, logrando un impacto positivo en el medio ambiente y en los costos operativos de la empresa.",
-    },
-    {
-      image: "/projects/aislada.png",
-      title: "Autonomía Energética en Benicàssim",
-      description:
-        "Instalación de paneles solares en una residencia en Benicàssim, proporcionando independencia energética y reduciendo las facturas de electricidad a largo plazo.",
-    },
-  ];
+const projects: Project[] = [
+  {
+    id: 1,
+    image: "/INSTALACIONES/LOCALALMAZORA1/almazora.jpeg",
+    title: "Instalación de Energía Solar en Almazora",
+    description:
+      "Instalación de 8kWn en Almazora con significativos beneficios en reducción de costos y autonomía energética.",
+  },
+  {
+    id: 2,
+    image: "/INSTALACIONES/LOCALALMAZORA2/almazora2.jpeg",
+    title: "Planta Fotovoltaica en Alicante",
+    description:
+      "Planta de 2MW en Alicante, diseñada para maximizar la eficiencia y reducir el impacto ambiental.",
+  },
+  {
+    id: 3,
+    image: "/projects/aislada.png",
+    title: "Optimización Energética en Castellón",
+    description:
+      "Reducción de consumo energético en Castellón mediante soluciones innovadoras y paneles solares de alta eficiencia.",
+  },
+  {
+    id: 4,
+    image: "/projects/aislada.png",
+    title: "Energía Renovable en Valencia",
+    description:
+      "Sistema de energía renovable en Valencia que reduce costos operativos y el impacto ambiental.",
+  },
+  {
+    id: 5,
+    image: "/projects/aislada.png",
+    title: "Autonomía Energética en Benicàssim",
+    description:
+      "Independencia energética en Benicàssim mediante la instalación de paneles solares, reduciendo facturas a largo plazo.",
+  },
+];
 
-  // Estilos personalizados para Swiper
-  const customStyles: React.CSSProperties = {
-    "--swiper-pagination-color": "#f97316",
-    "--swiper-navigation-color": "#f97316",
-  } as React.CSSProperties;
+const ProjectsSection: React.FC = () => {
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+
+  const handleSelectProject = (project: Project) => {
+    setSelectedProject(project);
+  };
+
+  const handleCloseProject = () => {
+    setSelectedProject(null);
+  };
 
   return (
-    <section id="proyecto" className="py-20 bg-gray-100 dark:bg-gray-900">
-      <div className="container mx-auto">
-        <motion.h2
-          className="text-5xl font-extrabold text-center text-gray-900 dark:text-white mb-16"
-          initial={{ opacity: 0, y: -50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-        >
-          Nuestros Proyectos
-        </motion.h2>
-
-        <Swiper
-          modules={[Navigation, Pagination, Autoplay]}
-          pagination={{ clickable: true }}
-          navigation
-          autoplay={{
-            delay: 4000,
-            disableOnInteraction: false,
-          }}
-          loop={true}
-          className="mySwiper"
-          style={customStyles}
-        >
-          {projects.map((project, index) => (
-            <SwiperSlide key={project.title}>
-              <motion.div
-                className="relative overflow-hidden rounded-3xl shadow-2xl h-112 sm:h-128 md:h-160 lg:h-192"
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.7, delay: index * 0.2 }}
-              >
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-full object-cover transition-transform duration-700 transform hover:scale-110"
-                />
-                <motion.div
-                  className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center flex-col p-6 transition-opacity duration-300 hover:bg-opacity-75"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 0.5, delay: 0.2 }}
-                >
-                  <motion.h3
-                    className="text-2xl sm:text-3xl md:text-4xl font-bold text-white text-center"
-                    initial={{ opacity: 0, y: 50 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5 }}
-                  >
-                    {project.title}
-                  </motion.h3>
-                  <motion.p
-                    className="text-lg sm:text-xl md:text-2xl text-white mt-4 text-center"
-                    initial={{ opacity: 0, y: 50 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: 0.3 }}
-                  >
-                    {project.description}
-                  </motion.p>
-                </motion.div>
-              </motion.div>
-            </SwiperSlide>
-          ))}
-        </Swiper>
-
-        <div className="text-center mt-16 sm:mt-20">
-          <motion.a
-            href="https://wa.me/34624340422?text=Hola,%20me%20gustaría%20obtener%20más%20información%20sobre%20sus%20servicios."
-            className="inline-block bg-gradient-to-r from-orange-500 to-yellow-500 text-white py-4 px-10 sm:py-5 sm:px-12 rounded-full text-xl font-bold transition-transform duration-300 hover:scale-110 shadow-lg hover:shadow-2xl"
-            whileHover={{ scale: 1.1 }}
-            target="_blank"
-            rel="noopener noreferrer"
+    <section className="py-20 bg-gradient-to-r from-lightBackground to-lightBorder dark:from-darkBackground dark:to-darkBorder px-4 sm:px-6 lg:px-[10%] min-h-screen flex flex-col lg:flex-row">
+      {/* Tarjetas de proyectos ocupando 2/3 de la pantalla */}
+      <div className="w-full lg:w-2/3 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12 lg:mb-0">
+        {projects.map((project, index) => (
+          <motion.div
+            key={project.id}
+            className="relative w-full rounded-xl overflow-hidden shadow-lg transform transition-transform duration-300 cursor-pointer"
+            whileHover={{
+              scale: 1.05,
+              boxShadow: "0px 15px 40px rgba(0, 0, 0, 0.2)",
+            }}
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5 + index * 0.2 }}
           >
-            Contáctanos para Más Información
-          </motion.a>
-        </div>
+            <img
+              src={project.image}
+              alt={project.title}
+              className="w-full h-64 md:h-80 lg:h-96 object-cover"
+            />
+            <div className="absolute inset-0 bg-black bg-opacity-50 p-4 flex flex-col justify-end text-white">
+              <h3 className="text-xl lg:text-2xl font-semibold">
+                {project.title}
+              </h3>
+              <motion.a
+                className="mt-4 inline-block bg-gradient-to-r from-orange-500 to-yellow-500 text-white py-2 px-4 rounded-full text-sm font-medium transition-transform duration-300 hover:scale-110 hover:shadow-xl self-start"
+                whileHover={{ scale: 1.1 }}
+                onClick={() => handleSelectProject(project)}
+              >
+                Ver Más
+              </motion.a>
+            </div>
+          </motion.div>
+        ))}
       </div>
+
+      {/* Texto y botón ocupando 1/3 de la pantalla */}
+      <div className="w-full lg:w-1/3 flex flex-col justify-center text-center lg:text-left px-4 lg:px-8 space-y-6">
+        <h2 className="text-4xl md:text-5xl font-extrabold text-lightText dark:text-darkText mb-4">
+          Nuestros Proyectos <br />
+          Que Marcan la Diferencia.
+        </h2>
+        <p className="text-lg text-muted dark:text-muted mb-4">
+          Descubre cómo nuestras soluciones de energía renovable están
+          transformando el futuro, un proyecto a la vez.
+        </p>
+      </div>
+
+      {/* Modal de proyecto seleccionado */}
+      <AnimatePresence>
+        {selectedProject && (
+          <motion.div
+            className="fixed inset-0 bg-black bg-opacity-75 z-50 flex items-center justify-center p-4"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+          >
+            <motion.div
+              className="bg-white rounded-lg overflow-hidden shadow-2xl relative max-w-4xl w-full max-h-full"
+              initial={{ scale: 0.8 }}
+              animate={{ scale: 1 }}
+              exit={{ scale: 0.8 }}
+              transition={{ duration: 0.3 }}
+            >
+              <img
+                src={selectedProject.image}
+                alt={selectedProject.title}
+                className="w-full h-96 object-cover"
+              />
+              <div className="p-6 text-black">
+                <h3 className="text-2xl font-bold mb-4">
+                  {selectedProject.title}
+                </h3>
+                <p className="text-lg">{selectedProject.description}</p>
+                <motion.a
+                  href="#"
+                  className="mt-6 inline-block bg-gradient-to-r from-orange-500 to-yellow-500 text-white py-2 px-6 rounded-full text-lg font-medium transition-transform duration-300 hover:scale-110 hover:shadow-xl"
+                >
+                  Saber Más
+                </motion.a>
+                <button
+                  onClick={handleCloseProject}
+                  className="absolute top-4 right-4 bg-red-600 text-white rounded-full p-2 focus:outline-none"
+                  style={{ zIndex: 10 }}
+                >
+                  ✕
+                </button>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 };
 
-export default ProjectsShowcase;
+export default ProjectsSection;
